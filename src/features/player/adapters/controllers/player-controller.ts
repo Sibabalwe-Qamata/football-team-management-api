@@ -1,4 +1,14 @@
-import { assert, object, string, number } from 'superstruct';
+import { assert, object, string, number, array } from 'superstruct';
+
+
+const player = object({
+    team_id:string(),
+    name: string(),
+    surname: string(),
+    height: string(),
+    position:number(),
+})
+
 /**
  * Create a player controller
  * @function
@@ -11,13 +21,7 @@ export const createPlayerController = async(req: any, res: any, next: any) =>{
     try {
     assert(
       req.body,
-      object({
-        team_id:string(),
-        name: string(),
-        surname: string(),
-        height: string(),
-        position:number(),
-      })
+      player
     );
 
 
@@ -43,10 +47,7 @@ export const createPlayerController = async(req: any, res: any, next: any) =>{
       req.body,
       object({
         team_id:string(),
-        name: string(),
-        surname: string(),
-        height: string(),
-        position:number(),
+        players : array()
       })
     );
 
