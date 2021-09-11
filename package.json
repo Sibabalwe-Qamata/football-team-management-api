@@ -1,0 +1,44 @@
+{
+  "name": "football-team-management-api",
+  "version": "1.0.0",
+  "description": "This is a football team management api, it can be used to create and manage football players and teams.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "windows": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
+    "build": "tsc",
+    "prod": "node build/index.js localhost 8080",
+    "prod-ts": "ts-node src/index.ts",
+    "test": "jest",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.js' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sibabalwe-Qamata/football-team-management-api.git"
+  },
+  "keywords": [
+    "football",
+    "players",
+    "team",
+    "manager"
+  ],
+  "author": "Sibabalwe Qamata",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sibabalwe-Qamata/football-team-management-api/issues"
+  },
+  "homepage": "https://github.com/Sibabalwe-Qamata/football-team-management-api#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jest": "^27.1.1"
+  }
+}
