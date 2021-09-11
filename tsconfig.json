@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "removeComments": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "build",
+    "sourceMap": true,
+    // "strict": true,
+    "target": "es2017",
+    "noImplicitAny": false,
+    "allowJs": true
+  },
+  "compileOnSave": true,
+  "include": [
+    // "src",
+    "src/**/*.ts",
+    "src/**/*.js",
+    "node_modules/lodash-es/**/*.js",
+    "node_modules/graphql/**/*.js"
+  ],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
