@@ -3,9 +3,9 @@ import cors from 'cors';
 
 
 /** [START] routes */
-// import player from './features/order/adapters/routes/order-routes';
-// import team from './features/trip/adapters/routes/trip-routes';
-// import stadium from './features/trip/adapters/routes/trip-routes';
+// import player from './features/player/adapters/routes/player-routes';
+// import team from './features/team/adapters/routes/team-routes';
+// import stadium from './features/stadium/adapters/routes/stadium-routes';
 /** [END] routes */
 
 const app = express();
