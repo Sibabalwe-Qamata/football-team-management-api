@@ -39,6 +39,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "jest": "^27.1.1"
+    "jest": "^27.1.1",
+    "superstruct": "^0.15.2"
   }
 }
