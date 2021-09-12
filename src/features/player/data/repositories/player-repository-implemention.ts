@@ -5,11 +5,10 @@
 
 export class PlayerRepositoryImplementation implements PlayerRepository{
 
-    async CreatePlayer(player:any):Promise<Player>{
+    async CreatePlayer(team_id:number, player:any):Promise<Player>{
         try {
-            
-
-            return new Player("")
+            const playerRef = await createPlayer(team_id, player);
+            return new Player(playerRef, team_id, player)
         } catch (error) {
             throw error
         }
@@ -18,7 +17,7 @@ export class PlayerRepositoryImplementation implements PlayerRepository{
 
     async CreatePlayers(players:any[]):Promise<Player>{
         try {
-            return new Player("")
+            return new Player("", 0, "")
         } catch (error) {
             throw error
         }
@@ -26,7 +25,7 @@ export class PlayerRepositoryImplementation implements PlayerRepository{
 
     async EditPlayerTeam(player: any):Promise<Player>{
         try {
-            return new Player("") 
+            return new Player("", 0, "") 
         } catch (error) {
             throw error
         }
@@ -35,7 +34,7 @@ export class PlayerRepositoryImplementation implements PlayerRepository{
 
     async EditPlayer(player : any):Promise<Player>{
         try {
-            return new Player("")
+            return new Player("", 0, "")
         } catch (error) {
             throw error
         }
@@ -43,7 +42,7 @@ export class PlayerRepositoryImplementation implements PlayerRepository{
 
     async GetPlayer(player:any):Promise<Player>{
         try {
-            return new Player("")
+            return new Player("", 0, "")
         } catch (error) {
             throw error
         }

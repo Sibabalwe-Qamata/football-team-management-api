@@ -2,7 +2,7 @@ import { Player } from "../entities/player-entity";
 import { PlayerRepository } from "../repositories/player-repository";
 
 interface PlayerUsecase {
-    CreatePlayer(player:any): Promise<Player>;
+    CreatePlayer(team_id:number, player:any): Promise<Player>;
     CreatePlayers(players:any[]): Promise<Player>;
     EditPlayerTeam(player:any):Promise<Player>;
     EditPlayer(player:any):Promise<Player>;
@@ -21,8 +21,8 @@ export class PlayerUsecaseImplementation implements PlayerUsecase{
      * Create player
      */
 
-     CreatePlayer(player:any):Promise<Player>{
-        return this.playerRepository.CreatePlayer(player);
+     CreatePlayer(team_id:number,player:any):Promise<Player>{
+        return this.playerRepository.CreatePlayer(team_id,player);
      }
 
 

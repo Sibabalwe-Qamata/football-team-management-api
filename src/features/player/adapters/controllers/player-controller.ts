@@ -1,13 +1,15 @@
 import { assert, object, string, number, array } from 'superstruct';
+import { PlayerRepositoryImplementation } from '../../data/repositories/player-repository-implemention';
+import { PlayerUsecaseImplementation } from '../../domain/usercases/player-usercase';
 
-
-const player = object({
-    team_id:string(),
-    name: string(),
-    surname: string(),
-    height: string(),
-    position:number(),
-})
+// const _player = object({
+//     team_id:string(),
+    
+//         name: string(),
+//         surname: string(),
+//         height: number(),
+//         position:number()
+// })
 
 /**
  * Create a player controller
@@ -19,13 +21,24 @@ const player = object({
 
 export const createPlayerController = async(req: any, res: any, next: any) =>{
     try {
-    assert(
-      req.body,
-      player
-    );
+    // assert(
+    //  _player,
+    //   req.body
+    // );
+    const { team_id , name, surname, height, position } = req.body;
+  
+    const player = {
+        name: name,
+        surname: surname,
+        height : height,
+        position : position
+    }
+    const playerRepository = new PlayerRepositoryImplementation();
+    const playerUsecase = new PlayerUsecaseImplementation(playerRepository)
 
+    const result = await playerUsecase.CreatePlayer(team_id, player)
 
-
+    res.json(result)
     } catch (error) {
         next(error)
     }

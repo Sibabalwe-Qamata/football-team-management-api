@@ -1,4 +1,15 @@
-import { assert, object, string, number} from 'superstruct';
+// import { assert, object, string, number} from 'superstruct';
+
+import  randomstring  from 'randomstring';
+
+
+// const _player = object({
+//     team_id:string(),
+//         name: string(),
+//         surname: string(),
+//         height: number(),
+//         position:number()
+// })
 
 /**
  * Create a player 
@@ -8,24 +19,18 @@ import { assert, object, string, number} from 'superstruct';
  * @param  {express.NextFunction} next
  */
 
- export const createPlayer = async(player:any): Promise<any> =>{
+ export const createPlayer = async(team_id:number, player:any): Promise<any> =>{
     try {
-    assert(
-    player,
-      object({
-        team_id:string(),
-        name: string(),
-        surname: string(),
-        height: string(),
-        position:number(),
-      })
-    );
+    // assert(
+    // _player,
+    // player
+    // );
+    
+    const playerRef = randomstring.generate();
+    // To-do : DB insertion 
+    
 
-
-    // Data base insertion 
-    const playerRef = "";
-
-    return {player_id: playerRef}
+    return playerRef
     } catch (error) {
         throw error;
     }
