@@ -4,14 +4,16 @@ import {
     createPlayerController,
     editPlayerController,
     editPlayerTeamController,
-    getPlayerController
+    getPlayerController,
+    createPlayersController
 } from '../controllers/player-controller';
 
 
 const router = express.Router()
 router.post('/create', createPlayerController)
-router.post('/:player_id/get', getPlayerController)
-router.put('/:player_id/edit', editPlayerController)
-router.put('/:player_id/edit/team', editPlayerTeamController)
+router.post('/create/many', createPlayersController)
+router.get('/:player_id', getPlayerController)
+router.patch('/:player_id/edit', editPlayerController)
+router.patch('/:player_id/edit/team', editPlayerTeamController)
 
 export default router;
