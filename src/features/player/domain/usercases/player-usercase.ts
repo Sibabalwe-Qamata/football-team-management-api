@@ -3,10 +3,10 @@ import { PlayerRepository } from "../repositories/player-repository";
 
 interface PlayerUsecase {
     CreatePlayer(team_id:number, player:any): Promise<Player>;
-    CreatePlayers(players:any[]): Promise<Player>;
-    EditPlayerTeam(player:any):Promise<Player>;
-    EditPlayer(player:any):Promise<Player>;
-    GetPlayer(player:any):Promise<Player>;
+    CreatePlayers(team_id:number, players:any[]): Promise<Player>;
+    EditPlayerTeam(team_id:number, player_id:string):Promise<Player>;
+    EditPlayer(player_id:string, player:any):Promise<Player>;
+    GetPlayer(player_id:string):Promise<Player>;
 }
 
 export class PlayerUsecaseImplementation implements PlayerUsecase{
@@ -30,30 +30,30 @@ export class PlayerUsecaseImplementation implements PlayerUsecase{
       * Create players
       */
 
-     CreatePlayers(players : any[]):Promise<Player>{
-         return this.playerRepository.CreatePlayers(players);
+     CreatePlayers(team_id:number, players : any[]):Promise<Player>{
+         return this.playerRepository.CreatePlayers(team_id, players);
      }
 
      /**
       * Edit player team
       */
 
-     EditPlayerTeam(player:any):Promise<Player>{
-        return this.playerRepository.EditPlayerTeam(player);
+     EditPlayerTeam(team_id:number, player_id:string):Promise<Player>{
+        return this.playerRepository.EditPlayerTeam(team_id, player_id);
      }
 
      /**
       * Edit player
       */
-      EditPlayer(player:any):Promise<Player>{
-        return this.playerRepository.EditPlayer(player);
+      EditPlayer(player_id:string, player:any):Promise<Player>{
+        return this.playerRepository.EditPlayer(player_id, player);
       }
 
     /**
      * Get player
      */
-     GetPlayer(player:any):Promise<Player>{
-         return this.playerRepository.GetPlayer(player);
+     GetPlayer(player_id:string):Promise<Player>{
+         return this.playerRepository.GetPlayer(player_id);
      }
      
 
