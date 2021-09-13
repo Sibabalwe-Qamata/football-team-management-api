@@ -1,4 +1,5 @@
-
+import { TeamRepositoryImplementation } from "../../data/repositories/team-repository-implementation";
+import { TeamUsecaseImplementation } from "../../domain/usecases/team-usecase";
 
 /**
  * Create team controller
@@ -10,10 +11,13 @@
 
  export const createTeamController = async(req: any, res: any, next: any) =>{
     try {
-    
- 
-    const result = " "
+    const { team } = req.body;
 
+    const teamRepository = new TeamRepositoryImplementation();
+    const teamUsecase = new TeamUsecaseImplementation(teamRepository);
+
+    const result = await teamUsecase.CreateTeam(team);
+    
     res.json(result)
     } catch (error) {
         next(error)
@@ -32,11 +36,14 @@
 
  export const linkTeamToStadiumController = async(req: any, res: any, next: any) =>{
     try {
-    
- 
-    const result = " "
+        const { team_id , stadium_id } = req.params;
 
-    res.json(result)
+        const teamRepository = new TeamRepositoryImplementation();
+        const teamUsecase = new TeamUsecaseImplementation(teamRepository);
+
+        const result = await teamUsecase.LinkTeamToStadium(parseInt(team_id),parseInt(stadium_id ));
+    
+        res.json(result)
     } catch (error) {
         next(error)
     }
