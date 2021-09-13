@@ -1,21 +1,14 @@
-import { createPlayer } from './create-player'
+import { editPlayerTeam } from './edit-player-team'
 
-describe('createPlayer', () => {
+describe('editPlayerTeam', () => {
     afterEach(() => {
       jest.restoreAllMocks();
     });
   
-    const team_id = 0;
-
+    const team_id = 1423;
+    const player_id =  "DwcQFyj4t2w6XS3UL0Lur39dBnmH2RGH";
     test('should find a result by team_id and return result details', async () => {
       // arrange
-      const player = {
-        team_id: 546516,
-        name: "Leaonado",
-        surname: "Messi",
-        height: 123,
-        position: 7
-      }
   
       const set = jest.fn();
       const update = jest.fn();
@@ -29,7 +22,7 @@ describe('createPlayer', () => {
     
   
       // act
-      const result = await createPlayer(team_id, player);
+      const result = await editPlayerTeam(team_id, player_id);
   
       // assert 
       expect(result).toBeDefined();
@@ -39,16 +32,7 @@ describe('createPlayer', () => {
   
       try {
         // @ts-ignore
-        expect(await createPlayer()).toEqual(expect.any(Object));
-      } catch (e) {
-        expect(e).toBeDefined();
-      }
-    });
-  
-    test('it should throw an error when name, surname, height, position is not provided', async () => {
-      try {
-        // @ts-ignore
-        expect(await createOrder(team_id)).toEqual(expect.any(Object));
+        expect(await editPlayerTeam()).toEqual(expect.any(Object));
       } catch (e) {
         expect(e).toBeDefined();
       }
