@@ -1,7 +1,7 @@
 import { assert, string} from 'superstruct';
 
 /**
- * Create a players of the same team 
+ * Edit a player
  */
 
  export const editPlayer = async(player_id:string, player:any): Promise<any> =>{
