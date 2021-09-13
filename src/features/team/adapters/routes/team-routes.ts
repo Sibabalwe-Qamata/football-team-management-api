@@ -8,7 +8,7 @@ import {
 
 const router = express.Router()
 router.post('/create', createTeamController)
-router.post('/link/stadium', linkTeamToStadiumController)
+router.patch('/link/:team_id/stadium/:stadium_id', linkTeamToStadiumController)
 
 
 export default router;
