@@ -2,15 +2,6 @@ import { assert, object, string, number, array } from 'superstruct';
 import { PlayerRepositoryImplementation } from '../../data/repositories/player-repository-implemention';
 import { PlayerUsecaseImplementation } from '../../domain/usercases/player-usercase';
 
-// const _player = object({
-//     team_id:string(),
-    
-//         name: string(),
-//         surname: string(),
-//         height: number(),
-//         position:number()
-// })
-
 /**
  * Create a player controller
  * @function
@@ -47,7 +38,7 @@ export const createPlayerController = async(req: any, res: any, next: any) =>{
 
 
 /**
- * Create a players controller
+ * Create players controller
  * @function
  * @param {express.Request} req
  * @param {express.Response} res
@@ -59,12 +50,19 @@ export const createPlayerController = async(req: any, res: any, next: any) =>{
     assert(
       req.body,
       object({
-        team_id:string(),
+        team_id:number(),
         players : array()
       })
     );
 
+    const { team_id , players } = req.body;
 
+    const playerRepository = new PlayerRepositoryImplementation();
+    const playerUsecase = new PlayerUsecaseImplementation(playerRepository)
+
+    const result = await playerUsecase.CreatePlayers(team_id, players)
+
+    res.json(result)
 
     } catch (error) {
         next(error)
@@ -92,7 +90,14 @@ export const createPlayerController = async(req: any, res: any, next: any) =>{
       })
     );
 
+    const player_id = req.params;
+    const player = req.body;
+    const playerRepository = new PlayerRepositoryImplementation();
+    const playerUsecase = new PlayerUsecaseImplementation(playerRepository)
 
+    const result = await playerUsecase.EditPlayer(player_id, player)
+
+    res.json(result)
     
     } catch (error) {
         next(error)
@@ -115,12 +120,18 @@ export const createPlayerController = async(req: any, res: any, next: any) =>{
     assert(
       req.body,
       object({
-        id_team:string(),
+        team_id:number(),
       })
     );
+    const { team_id } = req.body;
+    const { player_id } = req.params;
 
+    const playerRepository = new PlayerRepositoryImplementation();
+    const playerUsecase = new PlayerUsecaseImplementation(playerRepository)
 
-    
+    const result = await playerUsecase.EditPlayerTeam(team_id, player_id)
+
+    res.json(result)
     } catch (error) {
         next(error)
     }
@@ -138,7 +149,15 @@ export const createPlayerController = async(req: any, res: any, next: any) =>{
  export const getPlayerController = async(req: any, res: any, next: any) =>{
     try {
     assert(req.params, object({ player_id: string()}));
-   
+    const { player_id } = req.params;
+
+    const playerRepository = new PlayerRepositoryImplementation();
+    const playerUsecase = new PlayerUsecaseImplementation(playerRepository)
+
+    const result = await playerUsecase.GetPlayer(player_id)
+    
+    res.json(result)
+    
     } catch (error) {
         next(error)
     }
