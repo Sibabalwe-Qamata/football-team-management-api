@@ -1,5 +1,5 @@
 import { assert, object, string, number, array } from 'superstruct';
-import { PlayerRepositoryImplementation } from '../../data/repositories/player-repository-implemention';
+import { PlayerRepositoryImplementation } from '../../data/repositories/player-repository-implementation';
 import { PlayerUsecaseImplementation } from '../../domain/usercases/player-usecase';
 
 /**
