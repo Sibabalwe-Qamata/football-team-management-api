@@ -81,12 +81,13 @@ export const createPlayerController = async(req: any, res: any, next: any) =>{
       object({
         name: string(),
         surname: string(),
-        height: string(),
+        height: number(),
         position:number(),
       })
     );
 
-    const player_id = req.params;
+    const { player_id } = req.params; 
+    
     const player = req.body;
     const playerRepository = new PlayerRepositoryImplementation();
     const playerUsecase = new PlayerUsecaseImplementation(playerRepository)
