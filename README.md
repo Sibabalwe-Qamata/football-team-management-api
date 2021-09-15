@@ -48,10 +48,6 @@ Start the server
   npm run start
 ```
 
-```windows
-  npm run windows
-```
-
 ## Running Tests
 
 To run tests, run the following command
