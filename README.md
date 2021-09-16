@@ -327,17 +327,21 @@ None
 
 ## ER Diagram
 
-[DB-Design-diagram](https://linktodocumentation)
+[DB-Design-diagram](https://lucid.app/lucidchart/cef46ff3-3099-4095-abbf-d030a480be1b/view?page=0_0#)
 
 ## Documentation / Report
 
-[Documentation](https://linktodocumentation)
+[Documentation](https://docs.google.com/document/d/1dpw2FDltt2I7qjhMA0qVmbLEnlHXmLhWlUJ9yAFl1gA/edit?usp=sharing)
 
 ## Acknowledgements
 
 - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
 - [Awesome README](https://github.com/matiassingers/awesome-readme)
 - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+- [Lucid chart tool](https://lucid.app/)
+- [Clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+- [Mockaroo](https://www.mockaroo.com/)
+- [Guide to set up Typescript (Nodejs) projects](https://ultimatecourses.com/blog/setup-typescript-nodejs-express)
 
 ## Appendix
 
